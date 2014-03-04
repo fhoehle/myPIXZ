@@ -14,7 +14,7 @@ cd $installationDir
 tar -xzf $xzTgz
 cd $xzDirname
 ./configure --prefix=$xzDir
-make;
+make -j 4;
 make install
 ## install libarchive
 cd $installationDir
@@ -28,7 +28,7 @@ cd $libArDirname
 ./configure --prefix=$libArDir
 export CFLAGS="-I${xzDir}/include"
 export LDFLAGS="-L${xzDir}/lib"
-make;
+make -j 4;
 make install
 ## install pixz
 cd $installationDir
@@ -43,6 +43,5 @@ mv $pixzDirname/* $pixzDir/
 cd $pixzDir/
 export CFLAGS="-I${libArDir}/include "$CFLAGS
 export LDFLAGS="-L${libArDir}/lib "$LDFLAGS
-make
-make install
 make 
+make install
