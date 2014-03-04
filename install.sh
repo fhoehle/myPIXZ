@@ -34,7 +34,7 @@ make install
 cd $installationDir
 pixzSrc="http://downloads.sourceforge.net/project/pixz/pixz-1.0.2.tgz"
 wget $pixzSrc
-pixzTgz=`echo $libArchivSrc | sed 's/^.*\/\(pixz-[0-9\.]*\.[^\/]*\)$/\1/'`
+pixzTgz=`echo $pixzSrc | sed 's/^.*\/\(pixz-[0-9\.]*\.[^\/]*\)$/\1/'`
 pixzDirname=`echo $pixzTgz| sed 's/^\(pixz-[0-9\.]*\)\.[^\/]*$/\1/'`
 pixzDir=$installationDir/$pixzDirname
 tar -xzf $pixzTgz
