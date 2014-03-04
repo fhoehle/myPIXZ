@@ -27,7 +27,22 @@ tar -xzf $libArTgz
 cd $libArDirname
 ./configure --prefix=$libArDir
 export CFLAGS="-I${xzDir}/include"
-export LDFLAGS="-I${xzDir}/lib"
+export LDFLAGS="-L${xzDir}/lib"
 make;
 make install
-
+## install pixz
+cd $installationDir
+pixzSrc="http://downloads.sourceforge.net/project/pixz/pixz-1.0.2.tgz"
+wget $pixzSrc
+pixzTgz=`echo $libArchivSrc | sed 's/^.*\/\(pixz-[0-9\.]*\.[^\/]*\)$/\1/'`
+pixzDirname=`echo $pixzTgz| sed 's/^\(pixz-[0-9\.]*\)\.[^\/]*$/\1/'`
+pixzDir=$installationDir/$pixzDirname
+tar -xzf $pixzTgz
+mkdir -p $pixzDir
+mv $pixzDirname/* $pixzDir/
+cd $pixzDir/
+export CFLAGS="-I${libArDir}/include "$CFLAGS
+export LDFLAGS="-L${libArDir}/lib "$LDFLAGS
+make
+make install
+make 
