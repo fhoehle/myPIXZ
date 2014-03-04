@@ -7,8 +7,8 @@ targetForPkgs=${baseDir}/requiredPkgs
 cd $installationDir
 xzSrc="http://tukaani.org/xz/xz-5.0.5.tar.gz"
 wget $xzSrc
-xzTgz=`echo $xzSrc | sed 's/^.*\/\(xz-[0-9\.]\.[^\/]*\)$/\1/'`
-xzDirname=`echo $xzTgz | sed 's/^\(xz-[0-9\.]\)\.[^\/]*$/\1/'`
+xzTgz=`echo $xzSrc | sed 's/^.*\/\(xz-[0-9\.]*\.[^\/]*\)$/\1/'`
+xzDirname=`echo $xzTgz | sed 's/^\(xz-[0-9\.]*\)\.[^\/]*$/\1/'`
 xzDir=${targetForPkgs}/$xzDirname
 cd $installationDir
 tar -xzf $xzTgz
@@ -20,8 +20,8 @@ make install
 cd $installationDir
 libArchivSrc="https://github.com/downloads/libarchive/libarchive/libarchive-2.8.5.tar.gz"
 wget --no-check-certificate $libArchivSrc 
-libArTgz=`echo $libArchivSrc | sed 's/^.*\/\(libarchive-[0-9\.]\.[^\/]*\)$/\1/'`
-libArDirname=`echo $libArTgz | sed 's/^\(libarchive-[0-9\.]\)\.[^\/]*$/\1/'`
+libArTgz=`echo $libArchivSrc | sed 's/^.*\/\(libarchive-[0-9\.]*\.[^\/]*\)$/\1/'`
+libArDirname=`echo $libArTgz | sed 's/^\(libarchive-[0-9\.]*\)\.[^\/]*$/\1/'`
 libArDir=${targetForPkgs}/$libArDirname
 tar -xzf $libArTgz
 cd $libArDirname
