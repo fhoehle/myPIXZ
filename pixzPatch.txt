@@ -1,0 +1,41 @@
+--- endian.c	2013-01-09 05:25:03.000000000 +0100
++++ endian.c.new	2014-03-04 09:55:43.045327440 +0100
+@@ -10,22 +10,22 @@
+     OSWriteLittleInt64(d, 0, n);
+ }
+ 
+-#elif defined(__linux__) || defined(__FreeBSD__)
+-
+-#include <stdint.h>
+-#ifdef __linux__
+-	#include <endian.h>
+-#else
+-	#include <sys/endian.h>
+-#endif
+-
+-uint64_t xle64dec(const uint8_t *d) {
+-    return le64toh(*(uint64_t*)d);
+-}
+-
+-void xle64enc(uint8_t *d, uint64_t n) {
+-    *(uint64_t*)d = htole64(n);
+-}
++//#elif defined(__linux__) || defined(__FreeBSD__)
++//
++//#include <stdint.h>
++//#ifdef __linux__
++//	#include <endian.h>
++//#else
++//	#include <sys/endian.h>
++//#endif
++//
++//uint64_t xle64dec(const uint8_t *d) {
++//    return le64toh(*(uint64_t*)d);
++//}
++//
++//void xle64enc(uint8_t *d, uint64_t n) {
++//    *(uint64_t*)d = htole64(n);
++//}
+ 
+ #else
+ 

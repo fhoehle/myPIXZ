@@ -43,5 +43,6 @@ mv $pixzDirname/* $pixzDir/
 cd $pixzDir/
 export CFLAGS="-I${libArDir}/include "$CFLAGS
 export LDFLAGS="-L${libArDir}/lib "$LDFLAGS
+patch < $baseDir/pixzPatch.txt
 make 
 make install
