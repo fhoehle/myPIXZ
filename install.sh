@@ -1,6 +1,7 @@
 #!/bin/bash
 baseDir=$PWD
 installationDir=${baseDir}/installations
+mkdir -p $installationDir
 targetForPkgs=${baseDir}/requiredPkgs
 ## install xz
 cd $installationDir
@@ -18,7 +19,7 @@ make install
 ## install libarchive
 cd $installationDir
 libArchivSrc="https://github.com/downloads/libarchive/libarchive/libarchive-2.8.5.tar.gz"
-wget $libArchivSrc 
+wget --no-check-certificate $libArchivSrc 
 libArTgz=`echo $libArchivSrc | sed 's/^.*\/\(libarchive-[0-9\.]\.[^\/]*\)$/\1/'`
 libArDirname=`echo $libArTgz | sed 's/^\(libarchive-[0-9\.]\)\.[^\/]*$/\1/'`
 libArDir=${targetForPkgs}/$libArDirname
